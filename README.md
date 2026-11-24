@@ -1,23 +1,36 @@
 # Memorion
 
-[简体中文](README.zh-CN.md) · [App Store](https://apps.apple.com/us/app/memorion-ai-voice-recorder/id6758304534) · [Developer setup](docs/development.md)
+[简体中文](README.zh-CN.md) · [Website](https://memorion.me/) · [App Store](https://apps.apple.com/us/app/memorion-ai-voice-recorder/id6758304534) · [Developer setup](docs/development.md)
 
-Memorion turns everyday conversations into a searchable timeline, notes and a daily journal. You can start a recording on your phone, use the Apple Watch companion, or import recordings from a compatible wearable. The repository contains the mobile app, processing backend, device adapters and firmware for developers building wearable AI.
+**Memorion is an open-source wearable AI platform for turning everyday conversations into searchable memory.** Record on iPhone or Apple Watch, or import audio from a compatible wearable. Then revisit what was said, ask follow-up questions, and see the day come together in your journal.
 
-## What you can do
+## Record on Apple Watch
 
-- Record conversations, browse their transcripts and summaries, and tap a transcript line to hear the corresponding audio when a recording is available.
-- Find past conversations in your timeline, name people and correct speaker labels.
-- Review suggested to-dos, manage saved memories and revisit the day as a journal.
-- Ask follow-up questions about a conversation or search across your memory with Ask.
+Start and stop a recording from your wrist, even when your iPhone is out of reach. The watch app syncs the recording to your paired iPhone for transcription and AI processing. Review the transcript, summary, and timeline on iPhone after processing. All you need to start is the Memorion app and your paired Apple Watch. [See the Apple Watch walkthrough](https://memorion.me/en/app).
+
+<p align="center"><img src="docs/screenshots/apple-watch-recording.png" width="236" alt="Memorion on Apple Watch showing an active recording and the Stop button"></p>
+
+## From conversation to memory
+
+### Conversations and transcripts
+
+Open a chapter to revisit the transcript, summary, and key moments. Name speakers or correct their labels, and tap a transcript line to play the matching audio when it’s available. Suggested to-dos let you review follow-ups before adding them to your list.
+
+### Conversation Chat and Ask
+
+Ask a question from an individual chapter to follow up in context, such as “What did we agree to do next?” Use **Ask** to look across past conversations when you remember the topic but need help finding the moment. For example, ask what the team decided at last week’s product review, then return to the relevant conversation. [See more examples on the website](https://memorion.me/).
+
+### Daily Journal
+
+Memorion uses your conversations to create a dated journal entry. See what stood out across the day, what you want to remember, and what you want to pick up tomorrow. Browse older entries in the Journal tab, or switch to the conversation timeline for the full transcripts.
+
+| Conversation chapter | Daily Journal |
+| :---: | :---: |
+| <img src="docs/screenshots/conversation.png" width="260" alt="Conversation chapter summarizing a bicycle repair workshop"> | <img src="docs/screenshots/daily-journal.png" width="260" alt="Daily Journal entry with a checklist for the next bicycle ride"> |
+
+The iPhone screenshots use fictional conversations. The Apple Watch screenshot is from the [official app page](https://memorion.me/en/app).
 
 The hosted app uses cloud speech-to-text and AI services. A self-hosted installation sends data to the providers you configure. Record with the knowledge and consent of the people involved.
-
-| Conversation chapter | Daily journal |
-| :---: | :---: |
-| <img src="docs/screenshots/conversation.png" width="290" alt="Conversation chapter about a bicycle repair workshop"> | <img src="docs/screenshots/daily-journal.png" width="290" alt="Daily journal entry with a checklist for the next bicycle ride"> |
-
-Screenshots rendered from the Flutter app with fictional conversations.
 
 ## Recording sources
 
@@ -33,17 +46,20 @@ Screenshots rendered from the Flutter app with fictional conversations.
 
 The App Store listing documents the first five recording sources. Memorion’s dedicated consumer recording hardware is coming soon.
 
-## Repository layout
+## Inside the repository
 
-| Directory | Contents |
-| --- | --- |
-| [`app/`](app/) | Flutter app for iOS and Android, watchOS companion and BLE adapters |
-| [`backend/`](backend/) | FastAPI, transcription, conversation processing and Developer API |
-| [`cli/`](cli/README.md) | TypeScript CLI and MCP server |
-| [`firmware/`](firmware/README.md) | Omi and DevKit firmware |
-| [`docs/`](docs/) | Developer setup, API guide and screenshots |
+The code covers the path from capturing audio on a phone or wearable to producing transcripts, chat responses, and journal entries.
 
-Start with the [developer setup](docs/development.md). For API clients, see the [Developer API guide](docs/api/README.md).
+| Layer | Where to start | What’s included |
+| --- | --- | --- |
+| Mobile app and device adapters | [`app/`](app/) · [Flutter source](app/lib/) | iOS and Android app source, recording and BLE device integrations, conversation timeline, Ask, and journal UI. |
+| Apple Watch | [Watch app](app/ios/MemorionWatch/) · [Widgets](app/ios/MemorionWatchWidgets/) · [iPhone sync](app/ios/Runner/WatchSessionService.swift) | Native Swift recording app, watch controls, and audio transfer to the phone. |
+| Backend and data | [`backend/`](backend/) · [API routes](backend/routers/) · [Data access](backend/database/) | FastAPI endpoints for audio ingestion, conversations, memories, chat, and the Developer API. |
+| Speech and AI model layer | [Speech-to-text](backend/utils/stt/) · [LLM pipelines](backend/utils/llm/) · [Retrieval](backend/utils/retrieval/) · [Model routing](backend/config/README.md) | Speech provider adapters, prompts, embeddings and retrieval, model selection, and pipelines for summaries, chat, and journals. Configure the inference providers for your deployment. |
+| Firmware | [`firmware/`](firmware/README.md) | Omi and DevKit embedded firmware, board presets, and build instructions. |
+| Developer integrations | [CLI](cli/packages/cli/README.md) · [MCP server](cli/packages/mcp/README.md) · [Developer API](docs/api/README.md) | TypeScript command-line tools and MCP access to your Memorion data through the Developer API. |
+
+Start with the [local development guide](docs/development.md) to configure your own backend and connect the app or developer tools.
 
 ## License
 
