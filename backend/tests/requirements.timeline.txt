@@ -1,0 +1,2 @@
+# Optional test-only Redis/Lua engine; runtime uses the existing Redis client.
+fakeredis[lua]==2.32.0

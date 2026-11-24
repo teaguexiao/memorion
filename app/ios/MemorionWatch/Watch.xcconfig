@@ -1,0 +1,30 @@
+// watchOS App target 的基础配置。
+//
+// 存在的唯一理由：把 FLUTTER_BUILD_NAME / FLUTTER_BUILD_NUMBER 带进来，让手表 App 的
+// 版本号自动跟 iPhone 端一致（ASC 要求两者一致，而 `scripts/build_testflight.sh` 只
+// bump `pubspec.yaml`）。
+//
+// ⚠️ **刻意不 include `Debug.xcconfig` / `devDebug.xcconfig` 那一层**：它们会把
+// `Pods-Runner.*.xcconfig` 拉进来，那里面全是 iOS 的 framework 搜索路径和链接参数，
+// 对 watchOS target 是纯污染。
+//
+// ⚠️ 用 `#include?`（带问号 = 可选）而不是 `#include`：`Generated.xcconfig` 是
+// gitignore 掉的生成物，新 clone 上还不存在。硬 include 会让 Xcode 直接打不开工程；
+// 可选 include 的话版本号变成空串 —— 那会在构建/上传时明确报错，是个响亮的失败，
+// 而不是一个静默的错版本号。
+#include? "../Flutter/Generated.xcconfig"
+
+// ---------------------------------------------------------------- 手表 App 自己的版本号
+//
+// 手表端从 0.1.0 起单独计版，与 iPhone 端的版本号各自演进。
+//
+// 🚨 **它不能是 `CFBundleShortVersionString`。** 手表 App 是**嵌在** iPhone App 里发的
+// （`Memorion.app/Watch/MemorionWatch.app`），ASC 校验嵌入包与宿主包的
+// `CFBundleShortVersionString` / `CFBundleVersion` 必须完全一致，不一致直接
+// **ITMS-90473** 拒收。所以上面两个 key 只能继续绑 `FLUTTER_BUILD_NAME` /
+// `FLUTTER_BUILD_NUMBER`，这个值走一个自定义 key（`MemorionWatchVersion`）。
+//
+// 它是**给人看的**：watchOS 的系统设置里看不到 App 版本号，装在手表上的到底是哪一版，
+// 只能靠 App 自己显示（`RecorderView` 底部那行）。改版本就改这一行 —— 和 iPhone 端的
+// marketing version 一样，刻意不让 `build_testflight.sh` 自动 bump（那是人的决定）。
+MEMORION_WATCH_VERSION = 0.1.0

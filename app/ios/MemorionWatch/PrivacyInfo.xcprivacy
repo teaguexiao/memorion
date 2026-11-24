@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- 手表 App 自己的隐私清单。
+     ⚠️ **宿主 App 那份（`Runner/PrivacyInfo.xcprivacy`）不覆盖这里。** 苹果的检查是**逐
+     bundle** 做的，而手表 App 是一个独立 bundle（`Memorion.app/Watch/MemorionWatch.app`）
+     —— 宿主声明得再全，手表这边缺了照样收 ITMS-91053。
+     内容刻意比宿主那份短得多：手表端不联网、不接任何 SDK，下面每一条都是从
+     `MemorionWatch/*.swift` 里逐个符号扫出来的，别照抄宿主那份。 -->
+<plist version="1.0">
+<dict>
+	<key>NSPrivacyTracking</key>
+	<false/>
+	<key>NSPrivacyTrackingDomains</key>
+	<array/>
+	<key>NSPrivacyCollectedDataTypes</key>
+	<array>
+		<!-- 手表录的音频最终会经 iPhone 上传到 Memorion 账号（手表自己从不联网，
+		     但"是否收集"看的是数据的去向，不是哪台设备发出的请求）。 -->
+		<dict>
+			<key>NSPrivacyCollectedDataType</key>
+			<string>NSPrivacyCollectedDataTypeAudioData</string>
+			<key>NSPrivacyCollectedDataTypeLinked</key>
+			<true/>
+			<key>NSPrivacyCollectedDataTypeTracking</key>
+			<false/>
+			<key>NSPrivacyCollectedDataTypePurposes</key>
+			<array>
+				<string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string>
+			</array>
+		</dict>
+	</array>
+	<key>NSPrivacyAccessedAPITypes</key>
+	<array>
+		<!-- `PendingRecordingStore.hasMoovAtom` 用
+		     `FileManager.attributesOfItem(atPath:)[.size]` 取文件大小，走 MP4 box 时要它当
+		     边界。
+		     ⚠️ **"只取 size，没取时间戳"不能免除声明。** C617.1 的官方措辞就是
+		     "the timestamps, **size**, or other metadata of files inside the app
+		     container" —— size 明确在这个类别里。
+		     同一个文件里 `resourceValues(forKeys: [.fileSizeKey])` 和
+		     `contentsOfDirectory(includingPropertiesForKeys:)` **不在**必需声明的符号表上
+		     （表列的是 `.creationDateKey` / `.contentModificationDateKey` 那一族），
+		     所以这里只有一条。加符号时重新扫一遍，别假设这份清单还够。 -->
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategoryFileTimestamp</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>C617.1</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

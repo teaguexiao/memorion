@@ -1,0 +1,35 @@
+{
+  "name": "@memorion/cli",
+  "version": "0.1.3",
+  "description": "Memorion command-line client — access recordings, transcripts, summaries and audio from your Memorion device",
+  "type": "module",
+  "bin": {
+    "memorion": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "homepage": "https://memorion.me",
+  "keywords": [
+    "memorion",
+    "cli",
+    "ai-wearable",
+    "transcription",
+    "recordings"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@memorion/core": "0.1.3",
+    "commander": "^12.1.0"
+  }
+}

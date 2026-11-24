@@ -1,0 +1,12 @@
+# Reviewed false positives in dependency checksums, synthetic test data, and application lock keys.
+app/ios/Podfile.lock:generic-api-key:354
+app/ios/Podfile.lock:generic-api-key:363
+app/ios/Podfile.lock:generic-api-key:368
+app/ios/Podfile.lock:generic-api-key:391
+app/test/plaud/fake_wifi.dart:generic-api-key:42
+app/test/plaud/wifi_protocol_test.dart:generic-api-key:40
+app/test/plaud/fixtures/synthetic.json:generic-api-key:22
+app/test/plaud/fixtures/synthetic.json:private-key:4
+app/test/plaud/fixtures/synthetic.json:private-key:13
+backend/routers/audio_upload.py:generic-api-key:635
+backend/utils/audio_jobs/state.py:generic-api-key:53

@@ -1,0 +1,18 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="40.8858" height="40.8859" viewBox="0 0 40.8858 40.8859" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="Group 1940699513">
+<g id="Rectangle 346241889">
+<use xlink:href="#stroke0_0_332" fill="white" fill-opacity="0.6"/>
+<mask id="stroke1_0_332" fill="white">
+<use xlink:href="#stroke0_0_332"/>
+</mask>
+<path d="M20.4429 0C31.7332 0 40.8858 9.1526 40.8858 20.4429C40.8858 31.7332 31.7332 40.8858 20.4429 40.8858C9.1526 40.8858 0 31.7332 0 20.4429C0 9.1526 9.1526 0 20.4429 0Z" stroke-width="0.908574" stroke="url(#paint0_linear_0_332)" mask="url(#stroke1_0_332)"/>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_332" x1="6.8143" y1="3.69108" x2="20.4429" y2="40.8858" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<path id="stroke0_0_332" d="M40.8858 20.4429C40.8858 9.1526 31.7332 0 20.4429 0C9.1526 0 0 9.1526 0 20.4429C0 31.7332 9.1526 40.8858 20.4429 40.8858C31.7332 40.8858 40.8858 31.7332 40.8858 20.4429Z"/>
+</defs>
+</svg>

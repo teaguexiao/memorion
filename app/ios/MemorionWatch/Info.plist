@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>Memorion</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>Memorion</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<!-- 🚨 版本号刻意与 iPhone 端共用 Flutter 的两个变量，而不是自己写死。
+	     手表 App 是**嵌在** iPhone App 里发的（`Memorion.app/Watch/MemorionWatch.app`），
+	     ASC 要求嵌入包与宿主包这两个 key 完全一致，不一致直接 **ITMS-90473** 拒收。
+	     而 `app/scripts/build_testflight.sh` 只 bump `pubspec.yaml`（→ FLUTTER_BUILD_NAME /
+	     FLUTTER_BUILD_NUMBER）。写死数字就意味着每次发版都要手改两处，漏改的表现是
+	     上传被 ASC 拒。
+	     ⚠️ 这也要求 Watch target 的 9 个 build configuration 都 include
+	     `Flutter/Generated.xcconfig`，否则这两个变量解析成空串。
+	     手表端自己的版本号在下面的 `MemorionWatchVersion`。 -->
+	<key>CFBundleShortVersionString</key>
+	<string>$(FLUTTER_BUILD_NAME)</string>
+	<key>CFBundleVersion</key>
+	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<!-- 手表端单独计版（0.1.0 起），定义在 `Watch.xcconfig`。
+	     ⚠️ 这是个**自定义 key**，系统不认、ASC 也不校验 —— 正因如此它才能与宿主 App
+	     不同（见上面 ITMS-90473）。唯一的读者是 `RecorderView` 底部那行版本文字：
+	     watchOS 系统设置里看不到 App 版本，那行是判断「手表上装的是哪一版」的唯一途径。 -->
+	<key>MemorionWatchVersion</key>
+	<string>$(MEMORION_WATCH_VERSION)</string>
+	<!-- watchOS 7+ 的单 target 形态。有了 WKApplication 就不需要旧的
+	     WKWatchKitApp / WatchKit Extension 那一套。 -->
+	<key>CFBundleURLTypes</key>
+	<array><dict><key>CFBundleURLSchemes</key><array><string>memorion-watch</string></array></dict></array>
+	<key>WKApplication</key>
+	<true/>
+	<!-- ⚠️ 走 build setting 而不是字面量。实际值 9 个 configuration 全是
+	     `me.memorion.api`（project 级写的 me.memorion / me.memorion.dev 被 target 级
+	     覆盖掉了，见 `scripts/add_watch_target.rb` 的 COMPANION_BUNDLE_ID 注释）。
+	     填错的表现是手表 App 装上了但永远配不上手机端，WCSession 静默不可达。 -->
+	<key>WKCompanionAppBundleIdentifier</key>
+	<string>$(COMPANION_APP_BUNDLE_ID)</string>
+	<!-- 麦克风权限文案。watchOS 首次录音时弹在手表上，要短。 -->
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Memorion uses the microphone to record your notes and conversations.</string>
+</dict>
+</plist>

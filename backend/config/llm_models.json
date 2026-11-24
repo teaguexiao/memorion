@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "version": "2026-10-23.1",
+  "providers": {
+    "openrouter": {
+      "mini": "openai/gpt-6-luna",
+      "medium": "anthropic/claude-sonnet-5.5",
+      "medium_experiment": "openai/gpt-6.1-sol",
+      "large": "anthropic/claude-opus-5.5",
+      "high": "anthropic/claude-sonnet-5.5",
+      "persona_mini": "openai/gpt-6-luna",
+      "persona_medium": "anthropic/claude-sonnet-5.5"
+    },
+    "bedrock": {
+      "mini": "global.openai.gpt-6-luna",
+      "medium": "global.anthropic.claude-sonnet-5-5",
+      "medium_experiment": "global.openai.gpt-6.1-sol",
+      "large": "global.anthropic.claude-opus-5-5",
+      "high": "global.anthropic.claude-sonnet-5-5",
+      "persona_mini": "global.openai.gpt-6-luna",
+      "persona_medium": "global.anthropic.claude-sonnet-5-5"
+    },
+    "gemini": {
+      "mini": "gemini-3.8-flash",
+      "medium": "gemini-3.8-flash",
+      "medium_experiment": "gemini-3.8-flash",
+      "large": "gemini-3.8-flash",
+      "high": "gemini-3.8-flash",
+      "persona_mini": "gemini-3.8-flash",
+      "persona_medium": "gemini-3.8-flash"
+    }
+  },
+  "replacements": {
+    "anthropic/claude-haiku-4.5": "openai/gpt-6-luna",
+    "openai/gpt-4.1": "openai/gpt-6.1-sol",
+    "global.anthropic.claude-haiku-4-5-20251001-v1:0": "global.openai.gpt-6-luna",
+    "google/gemini-2.5-flash": "google/gemini-3.8-flash",
+    "anthropic/claude-sonnet-5": "anthropic/claude-sonnet-5.5",
+    "global.anthropic.claude-sonnet-5": "global.anthropic.claude-sonnet-5-5",
+    "anthropic/claude-opus-5": "anthropic/claude-opus-5.5",
+    "global.anthropic.claude-opus-5": "global.anthropic.claude-opus-5-5"
+  },
+  "model_parameters": {
+    "gemini-3.8-flash": {
+      "thinking_level": "low"
+    },
+    "google/gemini-3.8-flash": {
+      "reasoning_effort": "low"
+    },
+    "anthropic/claude-sonnet-5.5": {
+      "max_tokens": 16384
+    },
+    "global.anthropic.claude-sonnet-5-5": {
+      "max_tokens": 16384,
+      "supports_tool_choice_values": [
+        "auto"
+      ]
+    },
+    "openai/gpt-6-luna": {
+      "reasoning_effort": "none"
+    },
+    "openai/gpt-6.1-sol": {
+      "reasoning_effort": "low"
+    },
+    "global.openai.gpt-6-luna": {
+      "additional_model_request_fields": {
+        "reasoning": {
+          "effort": "none"
+        }
+      },
+      "supports_tool_choice_values": [
+        "auto",
+        "any",
+        "tool"
+      ]
+    },
+    "global.openai.gpt-6.1-sol": {
+      "max_tokens": 16384,
+      "additional_model_request_fields": {
+        "reasoning": {
+          "effort": "low"
+        }
+      },
+      "supports_tool_choice_values": [
+        "auto"
+      ]
+    },
+    "global.anthropic.claude-opus-5-5": {
+      "max_tokens": 16384,
+      "supports_tool_choice_values": [
+        "auto"
+      ]
+    }
+  },
+  "models_without_temperature": [
+    "gemini-3.8-flash",
+    "claude-fable-5",
+    "claude-opus-4-7",
+    "claude-opus-4-8",
+    "claude-opus-5",
+    "claude-sonnet-5",
+    "gpt-6-luna",
+    "gpt-6.1-sol"
+  ],
+  "benchmark_default_judges": [
+    {
+      "provider": "openai",
+      "model_id": "openai/gpt-5.4-nano"
+    },
+    {
+      "provider": "openai",
+      "model_id": "openai/gpt-6-luna"
+    },
+    {
+      "provider": "google",
+      "model_id": "google/gemini-3.1-flash-lite"
+    }
+  ],
+  "conversation_summary": {
+    "provider": "bedrock",
+    "model_tier": "medium_experiment"
+  },
+  "image_description": {
+    "provider": "gemini",
+    "model_tier": "mini"
+  },
+  "image_generation": {
+    "model_id": "gemini-3.1-flash-lite-image",
+    "location": "global"
+  },
+  "transcript_cleaner": {
+    "model_id": "gemini-3.8-flash"
+  },
+  "chapter_rollup": {
+    "generation_tier": "mini",
+    "grounding_tier": "medium_experiment"
+  },
+  "provider_overrides": {
+    "openrouter": {
+      "mini": "bedrock",
+      "medium": "bedrock",
+      "medium_experiment": "bedrock",
+      "large": "bedrock",
+      "high": "bedrock",
+      "persona_mini": "bedrock",
+      "persona_medium": "bedrock"
+    }
+  },
+  "model_routes": {
+    "openai/gpt-6.1-sol": "global.openai.gpt-6.1-sol",
+    "openai/gpt-6-luna": "global.openai.gpt-6-luna",
+    "anthropic/claude-sonnet-5.5": "global.anthropic.claude-sonnet-5-5",
+    "anthropic/claude-opus-5.5": "global.anthropic.claude-opus-5-5",
+    "google/gemini-3.8-flash": "gemini-3.8-flash"
+  },
+  "image_generation_review": {
+    "provider": "bedrock",
+    "model_id": "global.anthropic.claude-sonnet-5-5",
+    "region": "us-west-2"
+  }
+}

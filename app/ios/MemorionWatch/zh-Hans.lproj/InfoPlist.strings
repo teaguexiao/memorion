@@ -1,0 +1,8 @@
+/* 手表 App 的系统权限文案（简体中文）。
+   ⚠️ **这里不能用 `WatchText.pick`，两套机制的判据不同。** 界面文案跟的是 App 内那个
+   手动语言开关（iPhone 用 `updateApplicationContext` 下发 `uiLocale`，见 `WatchText`），
+   而系统权限弹窗是**系统**渲染的，只认设备语言 —— Dart 侧那个开关对它完全无效。
+   所以「界面中文、弹窗英文」在把系统设成英文、App 内选中文的用户身上仍然会出现，
+   这是平台限制、不是这份文件漏了什么。
+   ⚠️ 文案要短：watchOS 的权限弹窗屏幕很窄，长句会被截断。 */
+"NSMicrophoneUsageDescription" = "Memorion 需要使用麦克风，把你的语音记录下来。";

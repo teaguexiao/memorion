@@ -1,0 +1,16 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 48 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame 1940700084">
+<g clip-path="url(#clip0_0_4)">
+<path id="Exclude" d="M41.2598 -0.00292969C45.0324 -0.00270658 48.0428 3.113 48.043 6.84961V33.1504C48.0428 36.887 45.0324 40.0017 41.2598 40.002H6.74707C2.97424 40.002 -0.0359431 36.8871 -0.0361328 33.1504V6.84961C-0.0359498 3.11287 2.97424 -0.00292969 6.74707 -0.00292969H41.2598ZM26.7656 17.8789C25.0333 18.7787 22.9713 18.7802 21.2383 17.8818L0 6.87207V12.1123L22.7549 24.3047C23.523 24.7726 24.4828 24.7726 25.251 24.3047L47.999 12.1123V6.84961L26.7656 17.8789Z" fill="url(#paint0_linear_0_4)"/>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_4" x1="6.15441" y1="6.24044" x2="40.6598" y2="19.66" gradientUnits="userSpaceOnUse">
+<stop stop-color="#A9D2FF"/>
+<stop offset="1" stop-color="#54A4FD"/>
+</linearGradient>
+<clipPath id="clip0_0_4">
+<rect width="48" height="40" rx="12" fill="white"/>
+</clipPath>
+</defs>
+</svg>

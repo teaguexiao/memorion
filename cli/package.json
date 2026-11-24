@@ -1,0 +1,15 @@
+{
+  "name": "memorion-cli-workspace",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build -w @memorion/core && npm run build -w @memorion/cli && npm run build -w @memorion/mcp",
+    "test": "npm run test -w @memorion/mcp"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0",
+    "@types/node": "^22.0.0"
+  }
+}

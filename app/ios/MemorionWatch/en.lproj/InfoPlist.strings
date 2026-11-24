@@ -1,0 +1,6 @@
+/* 手表 App 的系统权限文案（英文）。
+   ⚠️ 这一份存在的理由不是"英文需要翻译"，而是 **`.lproj` 必须成对**：只放
+   `zh-Hans.lproj` 的话，英文系统上 watchOS 的本地化查找会落到
+   `CFBundleDevelopmentRegion`，行为取决于 `$(DEVELOPMENT_LANGUAGE)` 解析成什么 ——
+   一个没必要留着的不确定性。值与 `Info.plist` 里的字面量保持一致。 */
+"NSMicrophoneUsageDescription" = "Memorion uses the microphone to record your notes and conversations.";

@@ -1,0 +1,159 @@
+{
+  "appPolicies" : {
+    "eula" : "",
+    "policies" : [
+      {
+        "locale" : "en_US",
+        "policyText" : "",
+        "policyURL" : ""
+      }
+    ]
+  },
+  "identifier" : "A14A0002",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+
+  ],
+  "settings" : {
+    "_failTransactionsEnabled" : false,
+    "_storeKitErrors" : [
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Load Products"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Purchase"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Verification"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Store Sync"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Subscription Status"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Transaction"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Manage Subscriptions Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Refund Request Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Offer Code Redeem Sheet"
+      }
+    ]
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "A14A0001",
+      "localizations" : [
+        {
+          "description" : "Memorion Pro subscriptions",
+          "displayName" : "Memorion Pro",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "Memorion Pro 订阅",
+          "displayName" : "Memorion Pro",
+          "locale" : "zh_Hans"
+        }
+      ],
+      "name" : "Memorion Pro",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "14.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "F0A14A01",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Unlimited listening, AI memories, and on-device transcription.",
+              "displayName" : "Memorion Pro Monthly",
+              "locale" : "en_US"
+            },
+            {
+              "description" : "不限量云端聆听、AI 记忆与设备端转录。",
+              "displayName" : "Memorion Pro 月度订阅",
+              "locale" : "zh_Hans"
+            }
+          ],
+          "productID" : "me.memorion.pro.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Memorion Pro Monthly",
+          "subscriptionGroupID" : "A14A0001",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "149.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "F0A14A02",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Unlimited listening, AI memories, and on-device transcription.",
+              "displayName" : "Memorion Pro Annual",
+              "locale" : "en_US"
+            },
+            {
+              "description" : "不限量云端聆听、AI 记忆与设备端转录。",
+              "displayName" : "Memorion Pro 年度订阅",
+              "locale" : "zh_Hans"
+            }
+          ],
+          "productID" : "me.memorion.pro.annual",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Memorion Pro Annual",
+          "subscriptionGroupID" : "A14A0001",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 4,
+    "minor" : 0
+  }
+}
