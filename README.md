@@ -12,9 +12,16 @@ Start and stop a recording from your wrist, even when your iPhone is out of reac
 
 ## From conversation to memory
 
-### Conversations and transcripts
+### Transcription and speaker recognition
 
-Open a chapter to revisit the transcript, summary, and key moments. Name speakers or correct their labels, and tap a transcript line to play the matching audio when it’s available. Suggested to-dos let you review follow-ups before adding them to your list.
+- **Real-time transcription and offline recording.** Stream audio for live transcription while connected, or record offline on a compatible device and have the recording transcribed after it syncs.
+- **Speaker diarization and voiceprint recognition.** See who spoke when and match speakers against saved voice profiles. You can add names, correct speaker labels, and tap a transcript line to replay the matching audio when the recording is available.
+
+### Conversation summaries, to-dos, and memories
+
+- **LLM-assisted filtering.** Rules and an LLM help keep low-information snippets and media playback out of your conversation timeline.
+- **Conversation summaries.** Revisit the main points, decisions, and next steps without reading the full transcript.
+- **To-do and memory extraction.** Review suggested follow-ups before adding them to your to-do list. Memorion also extracts facts and context you can search or ask about later.
 
 ### Conversation Chat and Ask
 
@@ -37,6 +44,15 @@ The hosted app uses cloud speech-to-text and AI services. A self-hosted installa
 | <a href="docs/screenshots/website/en-b-01.webp"><img src="docs/screenshots/website/en-b-01.webp" width="205" alt="Conversation timeline and a suggested to-do"></a> | <a href="docs/screenshots/website/en-b-04.webp"><img src="docs/screenshots/website/en-b-04.webp" width="205" alt="A conversation summary with speakers and a highlighted moment"></a> | <a href="docs/screenshots/website/en-b-03.webp"><img src="docs/screenshots/website/en-b-03.webp" width="205" alt="The Me tab showing insights and saved facts"></a> |
 
 Screenshots from the [Memorion website](https://memorion.me/#apps).
+
+## Use cases
+
+- **Meeting notes.** Review decisions and open questions, then check the transcript before assigning follow-ups or sharing a recap.
+- **Daily journaling and life logging.** Turn everyday conversations into dated entries and revisit a moment by topic even when you forget the date.
+- **Everyday organization for people with ADHD.** Capture commitments as they come up in conversation, review suggested to-dos, and find your next step after switching tasks.
+- **Personal knowledge bases for developers.** Use the CLI to retrieve transcripts and summaries as JSON for your own index, or connect an AI assistant through MCP to search your memories and find the source conversation. [CLI guide](https://memorion.me/en/docs/cli) · [MCP guide](https://memorion.me/en/docs/mcp)
+- **Lectures and study sessions.** Ask about a concept you missed and use the transcript to check how it was explained.
+- **User research interviews.** Summarize the main themes and replay a passage to check a quote in context.
 
 ## Recording sources
 
