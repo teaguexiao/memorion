@@ -24,13 +24,19 @@ Ask a question from an individual chapter to follow up in context, such as “Wh
 
 Memorion uses your conversations to create a dated journal entry. See what stood out across the day, what you want to remember, and what you want to pick up tomorrow. Browse older entries in the Journal tab, or switch to the conversation timeline for the full transcripts.
 
-| Conversation chapter | Daily Journal |
-| :---: | :---: |
-| <img src="docs/screenshots/conversation.png" width="260" alt="Conversation chapter summarizing a bicycle repair workshop"> | <img src="docs/screenshots/daily-journal.png" width="260" alt="Daily Journal entry with a checklist for the next bicycle ride"> |
-
-The iPhone screenshots use fictional conversations. The Apple Watch screenshot is from the [official app page](https://memorion.me/en/app).
-
 The hosted app uses cloud speech-to-text and AI services. A self-hosted installation sends data to the providers you configure. Record with the knowledge and consent of the people involved.
+
+## iPhone screenshots
+
+| Conversation Chat (Ask) | Daily Journal |
+| :---: | :---: |
+| <a href="docs/screenshots/website/en-b-05.webp"><img src="docs/screenshots/website/en-b-05.webp" width="205" alt="Ask showing answers to questions about past conversations"></a> | <a href="docs/screenshots/website/en-b-02.webp"><img src="docs/screenshots/website/en-b-02.webp" width="205" alt="Daily Journal with illustrated entries"></a> |
+
+| Timeline | Conversation detail | Personal memory |
+| :---: | :---: | :---: |
+| <a href="docs/screenshots/website/en-b-01.webp"><img src="docs/screenshots/website/en-b-01.webp" width="205" alt="Conversation timeline and a suggested to-do"></a> | <a href="docs/screenshots/website/en-b-04.webp"><img src="docs/screenshots/website/en-b-04.webp" width="205" alt="A conversation summary with speakers and a highlighted moment"></a> | <a href="docs/screenshots/website/en-b-03.webp"><img src="docs/screenshots/website/en-b-03.webp" width="205" alt="The Me tab showing insights and saved facts"></a> |
+
+Screenshots from the [Memorion website](https://memorion.me/#apps).
 
 ## Recording sources
 
@@ -54,10 +60,10 @@ The code covers the path from capturing audio on a phone or wearable to producin
 | --- | --- | --- |
 | Mobile app and device adapters | [`app/`](app/) · [Flutter source](app/lib/) | iOS and Android app source, recording and BLE device integrations, conversation timeline, Ask, and journal UI. |
 | Apple Watch | [Watch app](app/ios/MemorionWatch/) · [Widgets](app/ios/MemorionWatchWidgets/) · [iPhone sync](app/ios/Runner/WatchSessionService.swift) | Native Swift recording app, watch controls, and audio transfer to the phone. |
-| Backend and data | [`backend/`](backend/) · [API routes](backend/routers/) · [Data access](backend/database/) | FastAPI endpoints for audio ingestion, conversations, memories, chat, and the Developer API. |
+| Backend and data | [`backend/`](backend/) · [API routes](backend/routers/) · [Data access](backend/database/) | FastAPI endpoints for audio ingestion, conversations, memories, and chat. |
 | Speech and AI model layer | [Speech-to-text](backend/utils/stt/) · [LLM pipelines](backend/utils/llm/) · [Retrieval](backend/utils/retrieval/) · [Model routing](backend/config/README.md) | Speech provider adapters, prompts, embeddings and retrieval, model selection, and pipelines for summaries, chat, and journals. Configure the inference providers for your deployment. |
 | Firmware | [`firmware/`](firmware/README.md) | Omi and DevKit embedded firmware, board presets, and build instructions. |
-| Developer integrations | [CLI](cli/packages/cli/README.md) · [MCP server](cli/packages/mcp/README.md) · [Developer API](docs/api/README.md) | TypeScript command-line tools and MCP access to your Memorion data through the Developer API. |
+| Developer integrations | [CLI](cli/packages/cli/README.md) · [MCP server](cli/packages/mcp/README.md) | Use your Memorion recordings from scripts and AI assistants. |
 
 Start with the [local development guide](docs/development.md) to configure your own backend and connect the app or developer tools.
 
