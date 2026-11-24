@@ -24,13 +24,19 @@ iPhone 不在手边时，也可以直接在手腕上开始和停止录音。手�
 
 Memorion 会根据当天的对话生成带日期的日记，整理今天值得记下的事和明天想继续做的事。在日记页可以回顾以前的条目，需要完整转写时可以切回对话时间线。
 
-| 对话章节 | 每日日记 |
-| :---: | :---: |
-| <img src="docs/screenshots/conversation.png" width="260" alt="社区自行车维修活动的对话摘要"> | <img src="docs/screenshots/daily-journal.png" width="260" alt="含下次骑行备忘的每日日记"> |
-
-iPhone 截图使用虚构对话。Apple Watch 截图来自 [Memorion 官网](https://memorion.me/zh/app)。
-
 托管版使用云端转写和 AI 服务。自建版会使用你配置的处理服务。开始录音前请让在场人员知情并同意。
+
+## iPhone 应用截图
+
+| 对话问答（Ask） | 每日日记 |
+| :---: | :---: |
+| <a href="docs/screenshots/website/en-b-05.webp"><img src="docs/screenshots/website/en-b-05.webp" width="205" alt="Ask 英文界面展示如何回顾过去的对话"></a> | <a href="docs/screenshots/website/zh-b-02.webp"><img src="docs/screenshots/website/zh-b-02.webp" width="205" alt="日记页展示按日期排列的插画日记"></a> |
+
+| 对话时间线 | 对话详情 |
+| :---: | :---: |
+| <a href="docs/screenshots/website/zh-b-01.webp"><img src="docs/screenshots/website/zh-b-01.webp" width="205" alt="按日期和时间排列的对话时间线"></a> | <a href="docs/screenshots/website/zh-b-04.webp"><img src="docs/screenshots/website/zh-b-04.webp" width="205" alt="对话摘要与查看完整转写的入口"></a> |
+
+截图来自 [Memorion 官网](https://memorion.me/zh#apps)。
 
 ## 支持的录音来源
 
@@ -54,10 +60,10 @@ iPhone 截图使用虚构对话。Apple Watch 截图来自 [Memorion 官网](htt
 | --- | --- | --- |
 | 移动端与设备适配 | [`app/`](app/) · [Flutter 源码](app/lib/) | iOS 和 Android 应用源码、录音和 BLE 设备集成、对话时间线、Ask 和日记界面。 |
 | Apple Watch | [手表应用](app/ios/MemorionWatch/) · [小组件](app/ios/MemorionWatchWidgets/) · [iPhone 同步](app/ios/Runner/WatchSessionService.swift) | 原生 Swift 录音应用、手表录音控件和音频同步。 |
-| 后端与数据 | [`backend/`](backend/) · [API 路由](backend/routers/) · [数据访问](backend/database/) | 音频接收、对话、记忆、问答和 Developer API 的 FastAPI 实现。 |
+| 后端与数据 | [`backend/`](backend/) · [API 路由](backend/routers/) · [数据访问](backend/database/) | 音频接收、对话、记忆和问答的 FastAPI 实现。 |
 | 语音与 AI 模型层 | [语音转写](backend/utils/stt/) · [LLM 流程](backend/utils/llm/) · [检索](backend/utils/retrieval/) · [模型路由](backend/config/README.md) | 转写服务适配、提示词、向量与检索、模型选择，以及摘要、问答和日记生成流程。自建时可配置使用的推理服务。 |
 | 固件 | [`firmware/`](firmware/README.md) | Omi 和 DevKit 的嵌入式固件、板卡配置与编译说明。 |
-| 开发者集成 | [CLI](cli/packages/cli/README.md) · [MCP 服务器](cli/packages/mcp/README.md) · [Developer API](docs/api/README.md) | TypeScript 命令行工具和 MCP 服务器，通过 Developer API 访问自己的 Memorion 数据。 |
+| 开发者集成 | [CLI](cli/packages/cli/README.md) · [MCP 服务器](cli/packages/mcp/README.md) | 在脚本或 AI 助手中访问自己的 Memorion 录音。 |
 
 从[本地开发指南](docs/development.md)开始，配置自己的后端并接入 App 或开发者工具。
 
